@@ -23,25 +23,6 @@ public class SpringBootWebApplication extends WebMvcConfigurerAdapter {
 		SpringApplication.run(SpringBootWebApplication.class, args);
 	}
 
-    @Bean
-    public LocaleResolver localeResolver(){
-        SessionLocaleResolver localeResolver = new SessionLocaleResolver();
-        localeResolver.setDefaultLocale(Locale.US);
-        return  localeResolver;
-    }
-
-    @Bean
-    public LocaleChangeInterceptor localeChangeInterceptor() {
-        LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
-        localeChangeInterceptor.setParamName("lang");
-        return localeChangeInterceptor;
-    }
-
-    @Override
-    public void addInterceptors(InterceptorRegistry registry){
-        registry.addInterceptor(localeChangeInterceptor());
-    }
-
 	@Component
 	class initRepositoryCLR implements CommandLineRunner {
 
