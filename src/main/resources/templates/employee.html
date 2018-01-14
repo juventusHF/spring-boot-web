@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Employees</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all" href="../../style.css" th:href="@{/style.css}" />
+</head>
+
+<body>
+
+    <p>
+        <a th:href="@{/employees}" th:text="#{employees.title}">(employees)</a>
+    </p>
+
+    <h1 th:text="#{employee.title}">(Employee)</h1>
+
+    <form action="#" th:action="@{/saveEmployee}" th:object="${employee}" method="post">
+        <input type="hidden" th:field="*{id}"  />
+        <p><label for="firstName" th:text="#{employee.firstName}"></label>: <input type="text" th:field="*{firstName}" /> <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">*</span></p>
+        <p><label for="lastName" th:text="#{employee.lastName}"></label>: <input type="text" th:field="*{lastName}" /> <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">*</span></p>
+        <p><input type="submit" th:value="#{employee.save}" /></p>
+    </form>
+</body>
+
+</html>

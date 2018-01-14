@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Employees</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all" href="../../style.css" th:href="@{/style.css}" />
+</head>
+
+<body>
+
+    <h1 th:text="#{employees.title}">(Employees)</h1>
+
+
+    <p th:each="employee : ${employees}">
+        <a th:href="@{/employee(id=${employee.id})}" th:text="${employee.firstName + ' ' + employee.lastName}">first name last name</a>
+    </p>
+</body>
+
+</html>
