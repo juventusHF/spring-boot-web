@@ -21,12 +21,12 @@
         <p>
             <label for="firstName" th:text="#{employee.firstName}"></label>:
             <input type="text" th:field="*{firstName}" />
-            <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
+            <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
         </p>
         <p>
             <label for="lastName" th:text="#{employee.lastName}"></label>:
             <input type="text" th:field="*{lastName}" />
-            <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
+            <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
         </p>
         <p><input type="submit" th:value="#{employee.save}" /></p>
     </form>

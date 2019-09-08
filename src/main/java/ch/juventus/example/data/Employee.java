@@ -3,6 +3,7 @@ package ch.juventus.example.data;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Employee {
@@ -11,8 +12,10 @@ public class Employee {
     @GeneratedValue
     private Long Id;
 
+    @Size(min = 2, max = 20)
     private String firstName;
 
+    @Size(min = 2, max = 20)
     private String lastName;
 
     public Employee() { // why JPA why??
